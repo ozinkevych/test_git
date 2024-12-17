@@ -1,0 +1,13 @@
+diff --git a/web/modules/contrib/workflow/src/Plugin/Action/WorkflowStateActionBase.php b/web/modules/contrib/workflow/src/Plugin/Action/WorkflowStateActionBase.php
+index aea7cf2..ef6df3e 100644
+--- a/web/modules/contrib/workflow/src/Plugin/Action/WorkflowStateActionBase.php
++++ b/web/modules/contrib/workflow/src/Plugin/Action/WorkflowStateActionBase.php
+@@ -196,7 +196,7 @@ abstract class WorkflowStateActionBase extends ConfigurableActionBase implements
+     // Option 3: call WorkflowDefaultWidget via NodeFormDisplay.
+     $element = WorkflowDefaultWidget::createInstance($transition);
+     // Fetch the element from the widget.
+-    $element = $element[$field_name]['widget'][0];
++    $element = isset($element[$field_name]['widget'][0]) ? $element[$field_name]['widget'][0] : [];
+     // Make adaptations for VBO-form.
+     $element = [
+       '#type' => 'details',
